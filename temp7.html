@@ -23,7 +23,7 @@
             let len=users.length;
             let str="";
             for(let i=0;i<len;i++){
-                str=str+`<li>${users[i].name} - ${users[i].email} - ${users[i].password} - ${users[i].dob}</li>`
+                str=str+`<ol><li>${users[i].name} - ${users[i].email} - ${users[i].password} - ${users[i].dob}</li></ol>`
             }
                 data.innerHTML=str
         }
