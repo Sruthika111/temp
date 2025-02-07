@@ -5,28 +5,65 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
+        let users=[];
+
+        function addUser(){
+            let name=document.getElementById("name").value;
+            let email=document.getElementById("email").value;
+            let password=document.getElementById("password").value;
+            let dob=document.getElementById("dob").value;
+            let user={
+                name:name,
+                email:email,
+                password:password,
+                dob:dob,
+            };
+            users.push(user);
+
+            showLogin();
+        }
+        function show(){
+            let email=document.getElementById("email").value;
+            let password=document.getElementById("password").value;
+            for(let i=0;i<users.length;i++){
+                if(users[i].email==email && users[i].password==password){
+            let str=`
+            <div>
+                <h4>Welcome!</h4>
+                <button onclick="showLogin()">Log out</button>
+            </div>
+            `
+            root.innerHTML=str;
+           
+            }
+            else{
+                    msg.innerHTML="Access Denied"
+            }
+        }
+    }
         function showRegister(){
             let t=`
             <div>
                 <h2>Registration Form</h2>
-                <p><input type="text" placeholder="Name"></p>
-                <p><input type="email" placeholder="Email"></p>
-                <p><input type="password" placeholder="Password"></p>
-                <p><input type="date"></p>
-                <button>Register</button>
+                <p><input type="text" id="name" placeholder="Name"></p>
+                <p><input type="email" id="email" placeholder="Email"></p>
+                <p><input type="password" id="password" placeholder="Password"></p>
+                <p><input type="date" id="dob"></p>
+                <button onclick="addUser()">Register</button>
                 <p>Already a member?<button onclick="showLogin()">Login Here</p>
             </div>
                 `
-                root.innerHTML=t
+                root.innerHTML=t;
 
         }
         function showLogin(){
             let k=`
             <div>
                 <h2>Login Form</h2>
-                <p><input type="text"></p>
-                <p><input type="password"></p>
-                <button>Log In</button><br/><br>
+                <div id="msg"></div>
+                <p><input id="email" type="text"></p>
+                <p><input id="password" type="password"></p>
+                <button onclick="show()">Log In</button><br/><br>
                 <button onclick="showRegister()">Create Account</button>
             </div>
             `
@@ -38,6 +75,5 @@
 </head>
 <body onload="showLogin()">
     <div id="root"></div>
-    <!-- <button>Create Account</button> -->
 </body>
 </html>
