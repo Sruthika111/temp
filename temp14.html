@@ -5,15 +5,17 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        let a=parseFloat(document.getElementById("a").value)
-        let b=parseFloat(document.getElementById("b").value)
+       
         function arith(){
+            let a=parseFloat(document.getElementById("a").value)
+            let b=parseFloat(document.getElementById("b").value)
            let s= a+b;
             let d=a-b;
             let p=a*b;
             let di=a/b;
         }
-        document.getElementById("data").innerHTML=s+"<br>"+d+"<br>"+p+"<br>"+di;
+        // document.getElementById("data")
+        data.innerHTML=`${s}+"<br>"+${d}+"<br>"+${p}+"<br>"+${di}`;
         
     </script>
 </head>

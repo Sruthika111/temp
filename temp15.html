@@ -6,35 +6,37 @@
     <title>Document</title>
     <script>
         let users=[];
-
-        function addUser(){
-            let name=document.getElementById("name").value;
-            let email=document.getElementById("email").value;
-            let password=document.getElementById("password").value;
-            let dob=document.getElementById("dob").value;
-            let user={
-                name:name,
-                email:email,
-                password:password,
-                dob:dob,
-            };
-            users.push(user);
-
-            showLogin();
-        }
-        function show(){
-            let email=document.getElementById("email").value;
-            let password=document.getElementById("password").value;
-            for(let i=0;i<users.length;i++){
-                if(users[i].email==email && users[i].password==password){
+        function home(){
             let str=`
             <div>
                 <h4>Welcome!</h4>
                 <button onclick="showLogin()">Log out</button>
             </div>
             `
-            root.innerHTML=str;
-           
+            root.innerHTML=str
+        }
+        function addUser(){
+            let name=document.getElementById("name").value
+            let email=document.getElementById("email").value
+            let password=document.getElementById("password").value
+            let dob=document.getElementById("dob").value
+            let user={
+                name:name,
+                email:email,
+                password:password,
+                dob:dob,
+            }
+            users.push(user)
+
+            showLogin();
+        }
+        function show(){
+            let email=document.getElementById("email").value
+            let password=document.getElementById("password").value
+            for(let i=0;i<users.length;i++){
+                if(users[i].email==email && users[i].password==password){
+            home();
+            break;
             }
             else{
                     msg.innerHTML="Access Denied"
@@ -53,7 +55,7 @@
                 <p>Already a member?<button onclick="showLogin()">Login Here</p>
             </div>
                 `
-                root.innerHTML=t;
+                root.innerHTML=t
 
         }
         function showLogin(){
@@ -68,7 +70,7 @@
             </div>
             `
            
-        root.innerHTML=k;
+        root.innerHTML=k
         }
         
     </script>
