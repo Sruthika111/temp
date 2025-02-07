@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let a=document.getElementById("a").value
+        let b=document.getElementById("b").value
+        function arith(){
+           let s= a+b;
+            let d=a-b;
+            let p=a*b;
+            let di=a/b;
+        }
+        document.getElementById("data").innerHTML={s+"<br>"+d+"<br>"+p+"<br>"+di}
+        
+    </script>
+</head>
+<body>
+    <input type="number" id="a" placeholder="Enter number"/>
+    <input type="number" id="b" placeholder="Enter number"/>
+    <button onclick="arith()">Submit</button>
+    <div id="data"></div>
+</body>
+</html>
