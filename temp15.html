@@ -4,14 +4,84 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        /* *{
+            margin: 0px;
+            padding: 4px;
+        } */
+        h1{
+            background-color: rgba(154, 166, 170, 0.796);
+            text-align: center;
+        }
+        h3{
+            background-color: black;
+            text-align: center;
+            color: white;
+        }
+        #root{
+            background-color:lavender;
+            text-align: center;
+        }
+        #root button{
+            background-color:lightcoral;
+            color: white;
+            border-color: blanchedalmond;
+        }
+    </style>
     <script>
         let users=[];
+        let useremail = ""
+        let username = ""
+        let currBalance = 0
+        function showUser(){
+            let str=''
+            for(let i=0;i<users.length;i++){
+                str+=`<option value='${users[i].email}'>${users[i].email}`
+            }
+            selUser.innerHTML=str
+        }
+        function saveData(){
+            let amount=Number(document.getElementById("amount").value)
+            let type=document.getElementById("type").value
+            for(let i=0;i<users.length;i++){
+                if(users[i].email==useremail){
+                    if(type=="1")
+                    users[i].balance+=amount
+                    else if(type=="2"){
+                    users[i].balance-=amount
+                    spBalance.innerHTML=users[i].balance
+                     }
+                    else if(type=="3"){
+                    let newUser=document.getElementById("selUser").value
+                    for(let i=0;i<users[i].length;i++){
+                        if(users[i].email==newUser){
+                            users[i].balance+=amount
+                        }
+                        if(users[i].email==useremail){
+                            users[i].balance-=amount
+                            spBalance.innerHTML=users[i].balance
+                        }
+                    }
+                    }
+                break
+            }
+            }
+        }
         function home(){
             let str=`
-            <div>
-                <h4>Welcome!</h4>
-                <button onclick="showLogin()">Log out</button>
-            </div>
+                <h2>Welcome ${user.name}</h2>
+                <button onclick='showLogin()'>Logout</button>
+                <p><select id="type" onChange='showUser()'>
+                    <option value=0>--Select--</option>
+                    <option value=1>Deposit</option>
+                    <option value=2>Withdraw</option>
+                    <option value=3>Transfer</option>
+                    </select></p>
+                    <p><select style="display:none" id="selUser"></select></p>
+                    <p><input type="number" id="amount" placeholder="Enter Amount"></p>
+                    <button onclick='saveData()'>Submit</button>
+                    <p>Current Balance :<span id='spBalance'>${user.Balance}</span></p>
+            
             `
             root.innerHTML=str
         }
@@ -25,16 +95,18 @@
                 email:email,
                 password:password,
                 dob:dob,
+                balance:0
             }
             users.push(user)
 
             showLogin();
         }
-        function show(){
+        function chkUser(){
             let email=document.getElementById("email").value
             let password=document.getElementById("password").value
             for(let i=0;i<users.length;i++){
                 if(users[i].email==email && users[i].password==password){
+                    user=users[i]
             home();
             break;
             }
@@ -43,8 +115,8 @@
             }
         }
     }
-        function showRegister(){
-            let t=`
+        function showForm(){
+            let str=`
             <div>
                 <h2>Registration Form</h2>
                 <p><input type="text" id="name" placeholder="Name"></p>
@@ -55,27 +127,31 @@
                 <p>Already a member?<button onclick="showLogin()">Login Here</p>
             </div>
                 `
-                root.innerHTML=t
+                root.innerHTML=str
 
         }
         function showLogin(){
-            let k=`
+            let str=`
             <div>
                 <h2>Login Form</h2>
-                <div id="msg"></div>
+                <div id='msg'></div>
                 <p><input id="email" type="text"></p>
                 <p><input id="password" type="password"></p>
-                <button onclick="show()">Log In</button><br/><br>
-                <button onclick="showRegister()">Create Account</button>
+                <button onclick="chkUser()">Log In</button><br/><br>
+                <button onclick="showForm()">Create Account</button>
             </div>
             `
            
-        root.innerHTML=k
+        root.innerHTML=str
         }
         
     </script>
 </head>
 <body onload="showLogin()">
+    <h1>ABC Bank</h1>
+    <hr/>
     <div id="root"></div>
+    <hr/>
+    <h3>@Copyright 2025.All rights reserved.</h3>
 </body>
 </html>

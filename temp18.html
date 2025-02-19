@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let ipl=['SRH','CSK','MI','LSG','RCB']
+        ipl.forEach((value,index)=>{
+            //returns values of array
+            console.log(value)
+        });
+        let score=[32,12,42,35]
+        score.forEach((value,index)=>{
+            //returns values of array
+            console.log(value)
+        })
+        console.log("Update(map) score")
+        let newsc=score.map((value,index)=>{
+            //returns values of updated array
+            return value+5;
+        })
+        console.log(newsc)
+        console.log("Filter score")
+        let mod=score.filter((value,index)=>{
+            return value>15 
+            // returns in a array
+        })
+        console.log(mod)
+        let empid=[32,12,42,35]
+        console.log("find score")
+        let mod1=empid.find((value,index)=>{
+            return value==42
+            // returns single element
+        })
+        console.log(mod1)
+    </script>
+</body>
+</html>

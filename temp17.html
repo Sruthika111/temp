@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    function greet(){
+        console.log("Hello World!!")
+    }
+    greet();
+    const g1=()=>{
+        console.log("GRIET")
+    }
+    g1()
+    const g2=g1
+    g2()
+        let a=[
+        {
+            id:1,
+            name:"Apple",
+            price:"$2"
+        },
+        {
+            id:2,
+            name:"Mango",
+            price:"$3",
+        },
+        {
+            id:3,
+            name:"Avacado",
+            price:"$5",
+        }
+        ];
+        let str=''
+        for(let i=0;i<a.length;i++){
+            str+=a[i].name+"\n"
+            // console.log(a[i])
+        }
+        console.log(str)
+    </script>
+</body>
+</html>
