@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <img src="assets/eye-hide.png" width="100px" id="eye"/>
+    <script>
+        eye.style.position="absolute";
+        let t=0;
+        let l=0;
+        function eyeFall(){
+            t++;
+            if(t>600){
+                t=1;
+                l=Math.random()*500;
+            }
+            eye.style.top=t+"px";
+            eye.style.left=l+"px";
+            setTimeout(eyeFall,10);
+        }
+        eyeFall();
+    </script>
+</body>
+</html>

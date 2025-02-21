@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div >
+        <img src="assets/eye-show.png" width="100x" id="ball"/>
+        <img src="assets/eye-hide.png" width="100px" id="eye"/>
+        <script>
+            ball.style.position='absolute';
+            let b=document.body;
+            let left=0;
+            let down=400;
+            ball.style.left=left+"px"
+            ball.style.top=down+"px"
+             b.onkeydown=(e)=>{
+                if(e.key=="ArrowRight"){
+                left+=5
+                ball.style.left=left+"px"
+                }
+                if(e.key=="ArrowLeft"){
+                    left-=5
+                ball.style.left=left+"px"
+                }if(e.key=="ArrowDown"){
+                    down+=5
+                ball.style.top=down+"px"
+                }
+                if(e.key=="ArrowTop"){
+                    down-=5
+                ball.style.top=down+"px"
+                }
+            }
+            eye.style.position="absolute";
+        let t=0;
+        let l=0;
+        function eyeFall(){
+            t++;
+            if(t>600){
+                t=1;
+                l=Math.random()*500;
+            }
+            eye.style.top=t+"px";
+            eye.style.left=l+"px";
+            setTimeout(eyeFall,10);
+        }
+        eyeFall();
+        </script>
+    </div>
+</body>
+</html>
