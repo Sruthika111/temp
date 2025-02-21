@@ -13,26 +13,22 @@
             let b=document.body;
             let left=0;
             let down=0;
-            let up=0;
-            let right=0;
              b.onkeydown=(e)=>{
                 if(e.key=="ArrowRight"){
                 left+=5
                 ball.style.left=left+"px"
                 }
-                else if(e.key=="ArrowDown"){
+                if(e.key=="ArrowLeft"){
+                    left-=5
+                ball.style.left=left+"px"
+                }if(e.key=="ArrowDown"){
                     down+=5
                 ball.style.top=down+"px"
                 }
-                else if(e.key=="ArrowUp"){
-                    up+=5
-                ball.style.down=up+"px"
+                if(e.key=="ArrowTop"){
+                    down-=5
+                ball.style.top=down+"px"
                 }
-                else if(e.key=="ArrowLeft"){
-                    right+=5
-                ball.style.right=right+"px"
-                }
-                
             }
         </script>
     </div>
